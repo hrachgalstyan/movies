@@ -1,0 +1,33 @@
+import { Montserrat } from "next/font/google";
+import "@/assets/styles/globals.css";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
+import Background from "@/components/Background";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    return redirect("/");
+  }
+
+  return (
+    <html lang="en">
+      <body className={montserrat.className}>
+        <Background className="flex flex-col justify-center items-center">
+          {children}
+        </Background>
+      </body>
+    </html>
+  );
+}

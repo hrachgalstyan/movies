@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.movie_form {
+  display: grid;
+  grid-template-areas:
+    "image inputs"
+    "image buttons";
+  column-gap: 120px;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-areas:
+      "inputs"
+      "image"
+      "buttons";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    row-gap: 24px;
+  }
+}
+
+.image {
+  grid-area: image;
+  display: flex;
+  flex-direction: column;
+  width: 473px;
+
+  @media screen and (max-width: 1024px) {
+    width: 380px;
+  }
+}
+
+.inputs {
+  width: 362px;
+  grid-area: inputs;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-self: flex-start;
+  gap: 24px;
+  @media screen and (max-width: 1024px) {
+    width: 380px;
+    :nth-child(2) {
+      width: 100%;
+    }
+  }
+}
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-top: 64px;
+  align-self: flex-start;
+  @media screen and (max-width: 1024px) {
+    padding-top: 16px;
+  }
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 600;
+
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
