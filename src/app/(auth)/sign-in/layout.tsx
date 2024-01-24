@@ -2,9 +2,9 @@ import { Montserrat } from "next/font/google";
 import "@/assets/styles/globals.css";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 import Background from "@/components/Background";
+import { authOptions } from "@/app/auth-options";
 
 const montserrat = Montserrat({
   subsets: ["latin"],

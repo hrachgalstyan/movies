@@ -7,13 +7,14 @@ import AddIcon from "@/assets/images/add.svg";
 import LogoutIcon from "@/assets/images/logout.svg";
 import Link from "next/link";
 import { Pagination } from "./Pagination";
-import { PER_PAGE } from "@/app/(private)/page";
 import { signOut } from "next-auth/react";
 
 interface Props {
   movies: Array<Movie>;
   allCount: number;
 }
+
+const PER_PAGE = 8;
 
 const MoviesList: FC<Props> = ({ movies, allCount }) => {
   const handleLogOut = useCallback(() => signOut({ redirect: true }), []);

@@ -4,7 +4,7 @@ import "@/assets/styles/globals.css";
 import Background from "@/components/Background";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/auth-options";
 
 const montserrat = Montserrat({
   subsets: ["latin"],

@@ -3,7 +3,7 @@ import { db } from "../../../prisma";
 import EmptyList from "@/components/EmptyList";
 import MoviesList from "@/components/MoviesList";
 
-export const PER_PAGE = 8;
+const PER_PAGE = 8;
 
 const moviesCount = cache(() => db.movie.count());
 const getMovies = cache((currentPage: number) =>
